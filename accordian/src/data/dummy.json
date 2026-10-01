@@ -1,0 +1,510 @@
+{
+  "react": [
+    {
+      "questionTitle": "What is React and why is it used?",
+      "answer": "React is a JavaScript library for building user interfaces using reusable components. It uses a declarative approach and efficient updates, so the UI stays in sync with state.",
+      "link": "https://react.dev/learn"
+    },
+    {
+      "questionTitle": "What is JSX?",
+      "answer": "JSX is a syntax extension that lets you write HTML-like markup inside JavaScript. It is compiled (by Babel/SWC) into React.createElement or jsx() calls.",
+      "link": "https://react.dev/learn/writing-markup-with-jsx"
+    },
+    {
+      "questionTitle": "What is the difference between props and state?",
+      "answer": "Props are read-only inputs passed from parent to child. State is data owned and managed by a component that can change over time and triggers a re-render when updated.",
+      "link": "https://react.dev/learn/passing-props-to-a-component"
+    },
+    {
+      "questionTitle": "How does useState work?",
+      "answer": "useState returns the current state value and a setter function. Calling the setter schedules a re-render with the new value, and React preserves the state between renders.",
+      "link": "https://react.dev/reference/react/useState"
+    },
+    {
+      "questionTitle": "Explain useEffect and its dependency array.",
+      "answer": "useEffect runs side effects (fetching, subscriptions, timers) after render. The dependency array controls when it re-runs: no array = every render, empty array = once on mount, values = when they change. Return a cleanup function to undo the effect.",
+      "link": "https://react.dev/reference/react/useEffect"
+    },
+    {
+      "questionTitle": "Why are keys important in lists?",
+      "answer": "Keys let React identify which items changed, were added, or removed, so it can reconcile the list efficiently and preserve component state. Use stable unique IDs, not array indexes, for dynamic lists.",
+      "link": "https://react.dev/learn/rendering-lists"
+    },
+    {
+      "questionTitle": "What is the Virtual DOM and reconciliation?",
+      "answer": "React keeps a lightweight in-memory tree of the UI. On updates it compares the new tree with the previous one (diffing) and applies only the minimal changes to the real DOM.",
+      "link": "https://legacy.reactjs.org/docs/reconciliation.html"
+    },
+    {
+      "questionTitle": "What is the difference between controlled and uncontrolled components?",
+      "answer": "A controlled component's form value is driven by React state via value and onChange. An uncontrolled component keeps its value in the DOM and is read using a ref.",
+      "link": "https://react.dev/reference/react-dom/components/input"
+    },
+    {
+      "questionTitle": "What is lifting state up?",
+      "answer": "When multiple components need the same data, you move the state to their closest common parent and pass it down via props, keeping a single source of truth.",
+      "link": "https://react.dev/learn/sharing-state-between-components"
+    },
+    {
+      "questionTitle": "What is prop drilling and how can you avoid it?",
+      "answer": "Prop drilling is passing props through many intermediate components that don't use them. Avoid it with Context, component composition, or a state library like Redux/Zustand.",
+      "link": "https://react.dev/learn/passing-data-deeply-with-context"
+    },
+    {
+      "questionTitle": "How does the Context API work?",
+      "answer": "createContext creates a context, a Provider supplies a value to its subtree, and useContext reads it from any descendant without passing props manually.",
+      "link": "https://react.dev/reference/react/useContext"
+    },
+    {
+      "questionTitle": "What is useRef used for?",
+      "answer": "useRef holds a mutable value that persists across renders without causing re-renders. It is commonly used to access DOM nodes or store values like timer IDs.",
+      "link": "https://react.dev/reference/react/useRef"
+    },
+    {
+      "questionTitle": "What is the difference between useMemo and useCallback?",
+      "answer": "useMemo caches the result of a calculation, while useCallback caches a function definition. Both only recompute when their dependencies change and are used to avoid unnecessary work or re-renders.",
+      "link": "https://react.dev/reference/react/useMemo"
+    },
+    {
+      "questionTitle": "What does React.memo do?",
+      "answer": "React.memo wraps a component and skips re-rendering if its props haven't changed (shallow comparison). It is a performance optimization for expensive components.",
+      "link": "https://react.dev/reference/react/memo"
+    },
+    {
+      "questionTitle": "When would you use useReducer instead of useState?",
+      "answer": "useReducer is better for complex state logic with multiple sub-values or when the next state depends on the previous one through well-defined actions. It centralizes updates in a reducer function.",
+      "link": "https://react.dev/reference/react/useReducer"
+    },
+    {
+      "questionTitle": "What are custom hooks?",
+      "answer": "Custom hooks are functions starting with 'use' that call other hooks to reuse stateful logic between components, such as useFetch or useLocalStorage.",
+      "link": "https://react.dev/learn/reusing-logic-with-custom-hooks"
+    },
+    {
+      "questionTitle": "What are the Rules of Hooks?",
+      "answer": "Call hooks only at the top level of a component or custom hook (not inside loops, conditions, or nested functions), and only from React function components or custom hooks.",
+      "link": "https://react.dev/reference/rules/rules-of-hooks"
+    },
+    {
+      "questionTitle": "What are Error Boundaries?",
+      "answer": "Error boundaries are class components that catch JavaScript errors in their child tree during rendering, log them, and show a fallback UI instead of crashing the whole app.",
+      "link": "https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary"
+    },
+    {
+      "questionTitle": "What are Fragments?",
+      "answer": "Fragments (<></>) let you group multiple elements without adding an extra node to the DOM.",
+      "link": "https://react.dev/reference/react/Fragment"
+    },
+    {
+      "questionTitle": "What are Portals in React?",
+      "answer": "createPortal renders children into a DOM node outside the parent hierarchy, useful for modals, tooltips, and dropdowns while keeping React event bubbling.",
+      "link": "https://react.dev/reference/react-dom/createPortal"
+    },
+    {
+      "questionTitle": "What is code splitting with lazy and Suspense?",
+      "answer": "React.lazy loads a component dynamically only when needed, and Suspense shows a fallback while it loads. This reduces the initial bundle size.",
+      "link": "https://react.dev/reference/react/lazy"
+    },
+    {
+      "questionTitle": "Explain the component lifecycle in functional components.",
+      "answer": "Mounting, updating, and unmounting are handled with useEffect: an effect with [] runs on mount, an effect with dependencies runs on updates, and the cleanup function runs on unmount or before the next effect.",
+      "link": "https://react.dev/learn/lifecycle-of-reactive-effects"
+    },
+    {
+      "questionTitle": "What is StrictMode?",
+      "answer": "StrictMode is a development-only wrapper that highlights potential problems by double-invoking renders and effects and warning about deprecated APIs.",
+      "link": "https://react.dev/reference/react/StrictMode"
+    },
+    {
+      "questionTitle": "How do you handle conditional rendering?",
+      "answer": "Use if statements, the ternary operator, or logical && to decide what JSX to return. Returning null renders nothing.",
+      "link": "https://react.dev/learn/conditional-rendering"
+    },
+    {
+      "questionTitle": "Why shouldn't you always use useEffect?",
+      "answer": "Many tasks like deriving values from props/state or handling user events don't need an effect. Calculate during render or use event handlers to avoid extra renders and bugs.",
+      "link": "https://react.dev/learn/you-might-not-need-an-effect"
+    }
+  ],
+  "express": [
+    {
+      "questionTitle": "What is Express.js?",
+      "answer": "Express is a minimal and flexible Node.js web framework that provides routing, middleware support, and utilities for building web apps and REST APIs.",
+      "link": "https://expressjs.com/"
+    },
+    {
+      "questionTitle": "What is middleware in Express?",
+      "answer": "Middleware functions have access to req, res, and next. They can run code, modify the request/response, end the cycle, or call next() to pass control onward.",
+      "link": "https://expressjs.com/en/guide/using-middleware.html"
+    },
+    {
+      "questionTitle": "What are the types of middleware?",
+      "answer": "Application-level, router-level, error-handling, built-in (express.json, express.static), and third-party middleware (cors, morgan, helmet).",
+      "link": "https://expressjs.com/en/guide/using-middleware.html"
+    },
+    {
+      "questionTitle": "How does routing work in Express?",
+      "answer": "Routing maps an HTTP method and path to a handler, e.g. app.get('/users', handler). Routes are matched in the order they are defined.",
+      "link": "https://expressjs.com/en/guide/routing.html"
+    },
+    {
+      "questionTitle": "What is express.Router()?",
+      "answer": "express.Router creates a modular, mountable set of route handlers (a mini-app). It helps organize routes into separate files and mount them with app.use('/api/users', router).",
+      "link": "https://expressjs.com/en/api.html#router"
+    },
+    {
+      "questionTitle": "How do you handle errors in Express?",
+      "answer": "Define an error-handling middleware with four parameters (err, req, res, next) after all routes. Pass errors to it with next(err).",
+      "link": "https://expressjs.com/en/guide/error-handling.html"
+    },
+    {
+      "questionTitle": "What is the difference between req.params, req.query, and req.body?",
+      "answer": "req.params holds route path values (/users/:id), req.query holds URL query string values (?page=2), and req.body holds the parsed request payload.",
+      "link": "https://expressjs.com/en/api.html#req"
+    },
+    {
+      "questionTitle": "What does express.json() do?",
+      "answer": "It is built-in middleware that parses incoming JSON request bodies and populates req.body.",
+      "link": "https://expressjs.com/en/api.html#express.json"
+    },
+    {
+      "questionTitle": "How do you serve static files?",
+      "answer": "Use express.static('public') middleware to serve files like images, CSS, and JS from a directory.",
+      "link": "https://expressjs.com/en/starter/static-files.html"
+    },
+    {
+      "questionTitle": "What is the role of next() and next(err)?",
+      "answer": "next() passes control to the next middleware or route. next(err) skips remaining non-error handlers and jumps to the error-handling middleware.",
+      "link": "https://expressjs.com/en/guide/writing-middleware.html"
+    },
+    {
+      "questionTitle": "What is the difference between app.use() and app.get()?",
+      "answer": "app.use() mounts middleware for all HTTP methods and matches any path starting with the given prefix. app.get() handles only GET requests for an exact path pattern.",
+      "link": "https://expressjs.com/en/api.html#app.use"
+    },
+    {
+      "questionTitle": "How do you enable CORS in Express?",
+      "answer": "Install and use the cors middleware: app.use(cors(options)). It sets the Access-Control-Allow-* headers to allow cross-origin requests.",
+      "link": "https://expressjs.com/en/resources/middleware/cors.html"
+    },
+    {
+      "questionTitle": "How do you handle file uploads?",
+      "answer": "Use the multer middleware to parse multipart/form-data and store files on disk or in memory, exposing them via req.file or req.files.",
+      "link": "https://expressjs.com/en/resources/middleware/multer.html"
+    },
+    {
+      "questionTitle": "How do you manage sessions and cookies?",
+      "answer": "Use cookie-parser to read cookies and express-session to maintain server-side sessions identified by a session ID cookie.",
+      "link": "https://expressjs.com/en/resources/middleware/session.html"
+    },
+    {
+      "questionTitle": "What are best practices for securing an Express app?",
+      "answer": "Use helmet for secure headers, enable HTTPS, validate and sanitize input, apply rate limiting, keep dependencies updated, and avoid exposing stack traces in production.",
+      "link": "https://expressjs.com/en/advanced/best-practice-security.html"
+    },
+    {
+      "questionTitle": "How can you improve Express performance?",
+      "answer": "Use gzip compression, avoid synchronous code, cache results, run behind a reverse proxy, use clustering or a process manager, and set NODE_ENV to production.",
+      "link": "https://expressjs.com/en/advanced/best-practice-performance.html"
+    },
+    {
+      "questionTitle": "What are template engines in Express?",
+      "answer": "Template engines like Pug, EJS, or Handlebars render dynamic HTML on the server. You configure them using app.set('view engine', 'ejs') and call res.render().",
+      "link": "https://expressjs.com/en/guide/using-template-engines.html"
+    },
+    {
+      "questionTitle": "What is the difference between res.send(), res.json(), and res.end()?",
+      "answer": "res.send() sends various response types, res.json() sends a JSON response with the proper Content-Type, and res.end() ends the response without data handling helpers.",
+      "link": "https://expressjs.com/en/api.html#res"
+    },
+    {
+      "questionTitle": "How do you connect Express to a database?",
+      "answer": "Install the database driver or ODM (such as Mongoose), establish the connection at startup, and use it inside route handlers or a service layer.",
+      "link": "https://expressjs.com/en/guide/database-integration.html"
+    },
+    {
+      "questionTitle": "What is app.param()?",
+      "answer": "app.param() registers a callback that runs when a route parameter is present, useful for loading or validating a resource by ID before the route handler.",
+      "link": "https://expressjs.com/en/api.html#app.param"
+    },
+    {
+      "questionTitle": "What does 'trust proxy' do?",
+      "answer": "Setting app.set('trust proxy', true) tells Express it is behind a reverse proxy so req.ip, req.protocol, and secure cookies use the X-Forwarded-* headers correctly.",
+      "link": "https://expressjs.com/en/guide/behind-proxies.html"
+    },
+    {
+      "questionTitle": "How do you log requests in Express?",
+      "answer": "Use the morgan middleware to log HTTP requests, or a logger like winston or pino for structured application logging.",
+      "link": "https://expressjs.com/en/resources/middleware/morgan.html"
+    },
+    {
+      "questionTitle": "How do you handle async errors in route handlers?",
+      "answer": "In Express 5, rejected promises are automatically passed to the error handler. In Express 4, wrap handlers in try/catch and call next(err), or use a wrapper utility.",
+      "link": "https://expressjs.com/en/guide/error-handling.html"
+    },
+    {
+      "questionTitle": "How do you start an Express server?",
+      "answer": "Create an app with express(), define routes and middleware, then call app.listen(port, callback) to start accepting connections.",
+      "link": "https://expressjs.com/en/starter/hello-world.html"
+    },
+    {
+      "questionTitle": "How do you structure a large Express project?",
+      "answer": "Separate concerns into routes, controllers, services, models, and middleware folders, and keep configuration in environment variables for maintainability and testing.",
+      "link": "https://expressjs.com/en/starter/generator.html"
+    }
+  ],
+  "node": [
+    {
+      "questionTitle": "What is Node.js?",
+      "answer": "Node.js is a JavaScript runtime built on Chrome's V8 engine that lets you run JavaScript outside the browser, using an event-driven, non-blocking I/O model.",
+      "link": "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs"
+    },
+    {
+      "questionTitle": "Explain the Node.js event loop.",
+      "answer": "The event loop lets Node perform non-blocking I/O by offloading operations and processing callbacks in phases (timers, pending callbacks, poll, check, close) when the call stack is empty.",
+      "link": "https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick"
+    },
+    {
+      "questionTitle": "Is Node.js single-threaded?",
+      "answer": "JavaScript code runs on a single main thread, but Node uses libuv's thread pool and OS async facilities for I/O, and you can use worker threads or clusters for parallelism.",
+      "link": "https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop"
+    },
+    {
+      "questionTitle": "What is the difference between process.nextTick() and setImmediate()?",
+      "answer": "process.nextTick callbacks run immediately after the current operation, before the event loop continues. setImmediate callbacks run in the check phase of the next loop iteration.",
+      "link": "https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick"
+    },
+    {
+      "questionTitle": "What is the difference between CommonJS and ES Modules?",
+      "answer": "CommonJS uses require() and module.exports and loads synchronously. ES Modules use import/export, are statically analyzable, and support top-level await.",
+      "link": "https://nodejs.org/api/esm.html"
+    },
+    {
+      "questionTitle": "What are streams and their types?",
+      "answer": "Streams process data in chunks instead of loading it entirely into memory. The types are Readable, Writable, Duplex, and Transform.",
+      "link": "https://nodejs.org/api/stream.html"
+    },
+    {
+      "questionTitle": "What is a Buffer?",
+      "answer": "A Buffer is a fixed-size chunk of memory for handling raw binary data, such as files or network packets.",
+      "link": "https://nodejs.org/api/buffer.html"
+    },
+    {
+      "questionTitle": "What is EventEmitter?",
+      "answer": "EventEmitter is a core class that lets objects emit named events and register listeners with on(), once(), and emit(), forming the basis of many Node APIs.",
+      "link": "https://nodejs.org/api/events.html"
+    },
+    {
+      "questionTitle": "How do callbacks, promises, and async/await differ?",
+      "answer": "Callbacks pass a function to run later and can lead to nested code. Promises represent future values with chaining, and async/await provides synchronous-looking syntax on top of promises.",
+      "link": "https://nodejs.org/en/learn/asynchronous-work/asynchronous-flow-control"
+    },
+    {
+      "questionTitle": "How do you read a file asynchronously?",
+      "answer": "Use fs.readFile with a callback or the promise version fs.promises.readFile with await, which avoids blocking the event loop. For large files, use streams.",
+      "link": "https://nodejs.org/api/fs.html"
+    },
+    {
+      "questionTitle": "What is the cluster module?",
+      "answer": "The cluster module forks multiple worker processes sharing the same server port so an app can use all CPU cores.",
+      "link": "https://nodejs.org/api/cluster.html"
+    },
+    {
+      "questionTitle": "What are worker threads?",
+      "answer": "Worker threads run JavaScript in parallel threads within the same process, ideal for CPU-intensive tasks without blocking the main event loop.",
+      "link": "https://nodejs.org/api/worker_threads.html"
+    },
+    {
+      "questionTitle": "What is the child_process module?",
+      "answer": "It lets you spawn subprocesses and run system commands using spawn, exec, execFile, and fork, communicating via streams or IPC.",
+      "link": "https://nodejs.org/api/child_process.html"
+    },
+    {
+      "questionTitle": "What is package.json?",
+      "answer": "package.json is the project manifest containing metadata, dependencies, scripts, entry point, and configuration for npm and Node.",
+      "link": "https://docs.npmjs.com/cli/v10/configuring-npm/package-json"
+    },
+    {
+      "questionTitle": "What is the difference between dependencies and devDependencies?",
+      "answer": "dependencies are required at runtime in production, while devDependencies are only needed during development and testing, like linters and test frameworks.",
+      "link": "https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file"
+    },
+    {
+      "questionTitle": "What is npm and what does package-lock.json do?",
+      "answer": "npm is Node's package manager. package-lock.json records the exact installed dependency tree versions so installs are reproducible.",
+      "link": "https://docs.npmjs.com/about-npm"
+    },
+    {
+      "questionTitle": "What is process in Node.js?",
+      "answer": "process is a global object providing information and control over the current Node process, including env, argv, exit(), cwd(), and event hooks.",
+      "link": "https://nodejs.org/api/process.html"
+    },
+    {
+      "questionTitle": "How do you handle uncaught exceptions and unhandled rejections?",
+      "answer": "Listen to process.on('uncaughtException') and process.on('unhandledRejection') to log and perform a graceful shutdown. Best practice is to handle errors where they occur and restart the process afterwards.",
+      "link": "https://nodejs.org/api/process.html#event-uncaughtexception"
+    },
+    {
+      "questionTitle": "How do you create an HTTP server in Node.js?",
+      "answer": "Use http.createServer((req, res) => {...}) and call server.listen(port). Frameworks like Express build on top of this.",
+      "link": "https://nodejs.org/api/http.html"
+    },
+    {
+      "questionTitle": "What is the path module used for?",
+      "answer": "The path module provides utilities for working with file and directory paths in a cross-platform way, such as path.join(), path.resolve(), and path.extname().",
+      "link": "https://nodejs.org/api/path.html"
+    },
+    {
+      "questionTitle": "What does util.promisify do?",
+      "answer": "util.promisify converts a callback-style function (error-first callback) into one that returns a Promise.",
+      "link": "https://nodejs.org/api/util.html#utilpromisifyoriginal"
+    },
+    {
+      "questionTitle": "How do you hash passwords in Node.js?",
+      "answer": "Use a slow, salted hashing algorithm such as bcrypt, scrypt, or argon2. Node's crypto module offers crypto.scrypt for built-in support.",
+      "link": "https://nodejs.org/api/crypto.html"
+    },
+    {
+      "questionTitle": "How do you prevent blocking the event loop?",
+      "answer": "Avoid heavy synchronous computation and *Sync methods in request handling. Offload CPU-bound work to worker threads or child processes and split large tasks into chunks.",
+      "link": "https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop"
+    },
+    {
+      "questionTitle": "How do you manage environment variables?",
+      "answer": "Access them through process.env. Use .env files with dotenv or Node's --env-file flag, and never commit secrets to version control.",
+      "link": "https://nodejs.org/en/learn/command-line/how-to-read-environment-variables-from-nodejs"
+    },
+    {
+      "questionTitle": "What is the difference between spawn, exec, and fork in child_process?",
+      "answer": "spawn streams output and suits large data, exec buffers output and returns it in a callback, and fork spawns a new Node process with a built-in IPC channel for messaging.",
+      "link": "https://nodejs.org/api/child_process.html"
+    }
+  ],
+  "mongodb": [
+    {
+      "questionTitle": "What is MongoDB?",
+      "answer": "MongoDB is a NoSQL document database that stores data as flexible JSON-like (BSON) documents, supporting horizontal scaling and rich queries.",
+      "link": "https://www.mongodb.com/docs/manual/introduction/"
+    },
+    {
+      "questionTitle": "What is the difference between SQL and MongoDB?",
+      "answer": "SQL databases use fixed-schema tables and joins, while MongoDB uses collections of flexible documents, often embedding related data to avoid joins.",
+      "link": "https://www.mongodb.com/docs/manual/core/data-modeling-introduction/"
+    },
+    {
+      "questionTitle": "What are documents and collections?",
+      "answer": "A document is a set of key-value pairs (a record), and a collection is a group of documents, similar to a table in relational databases.",
+      "link": "https://www.mongodb.com/docs/manual/core/databases-and-collections/"
+    },
+    {
+      "questionTitle": "What is BSON?",
+      "answer": "BSON is Binary JSON, the format MongoDB uses to store documents. It supports extra types like Date, ObjectId, and Decimal128.",
+      "link": "https://www.mongodb.com/docs/manual/reference/bson-types/"
+    },
+    {
+      "questionTitle": "What is an ObjectId?",
+      "answer": "ObjectId is the default 12-byte unique identifier for the _id field, made up of a timestamp, random value, and counter.",
+      "link": "https://www.mongodb.com/docs/manual/reference/method/ObjectId/"
+    },
+    {
+      "questionTitle": "What are the basic CRUD operations?",
+      "answer": "Create: insertOne/insertMany, Read: find/findOne, Update: updateOne/updateMany/replaceOne, Delete: deleteOne/deleteMany.",
+      "link": "https://www.mongodb.com/docs/manual/crud/"
+    },
+    {
+      "questionTitle": "How do you query documents with find()?",
+      "answer": "Pass a filter object to find(), e.g. db.users.find({ age: { $gt: 18 } }), optionally with a projection, sort, limit, and skip.",
+      "link": "https://www.mongodb.com/docs/manual/reference/method/db.collection.find/"
+    },
+    {
+      "questionTitle": "What are common query operators?",
+      "answer": "Comparison ($eq, $gt, $lt, $in), logical ($and, $or, $not), element ($exists), and array operators ($all, $elemMatch).",
+      "link": "https://www.mongodb.com/docs/manual/reference/operator/query/"
+    },
+    {
+      "questionTitle": "What are common update operators?",
+      "answer": "$set, $unset, $inc, $push, $pull, $addToSet, and $rename modify specific fields without replacing the whole document.",
+      "link": "https://www.mongodb.com/docs/manual/reference/operator/update/"
+    },
+    {
+      "questionTitle": "What are indexes and why use them?",
+      "answer": "Indexes are data structures that speed up queries by avoiding full collection scans, at the cost of extra storage and slower writes.",
+      "link": "https://www.mongodb.com/docs/manual/indexes/"
+    },
+    {
+      "questionTitle": "What is a compound index?",
+      "answer": "A compound index covers multiple fields in a defined order, supporting queries that filter or sort on a prefix of those fields.",
+      "link": "https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/"
+    },
+    {
+      "questionTitle": "What is the Aggregation Framework?",
+      "answer": "It processes documents through a pipeline of stages such as $match, $group, $sort, $project, and $lookup to transform and analyze data.",
+      "link": "https://www.mongodb.com/docs/manual/core/aggregation-pipeline/"
+    },
+    {
+      "questionTitle": "How does $lookup work?",
+      "answer": "$lookup performs a left outer join with another collection in the same database, adding matching documents as an array field.",
+      "link": "https://www.mongodb.com/docs/manual/reference/operator/aggregation/lookup/"
+    },
+    {
+      "questionTitle": "Embedding vs referencing: how do you choose?",
+      "answer": "Embed data that is read together and has a one-to-few relationship. Reference when data is large, shared across documents, or grows without bound.",
+      "link": "https://www.mongodb.com/docs/manual/data-modeling/"
+    },
+    {
+      "questionTitle": "What is replication and a replica set?",
+      "answer": "A replica set is a group of mongod instances maintaining the same data, with one primary and several secondaries, providing high availability and automatic failover.",
+      "link": "https://www.mongodb.com/docs/manual/replication/"
+    },
+    {
+      "questionTitle": "What is sharding?",
+      "answer": "Sharding distributes data across multiple machines using a shard key, enabling horizontal scaling for large datasets and high throughput.",
+      "link": "https://www.mongodb.com/docs/manual/sharding/"
+    },
+    {
+      "questionTitle": "Does MongoDB support transactions?",
+      "answer": "Yes. MongoDB supports multi-document ACID transactions on replica sets and sharded clusters, although good schema design often reduces the need for them.",
+      "link": "https://www.mongodb.com/docs/manual/core/transactions/"
+    },
+    {
+      "questionTitle": "What is schema validation?",
+      "answer": "Schema validation lets you enforce rules on document structure and field types per collection using $jsonSchema validators.",
+      "link": "https://www.mongodb.com/docs/manual/core/schema-validation/"
+    },
+    {
+      "questionTitle": "What is a TTL index?",
+      "answer": "A TTL index automatically deletes documents after a specified number of seconds, useful for sessions, logs, and temporary data.",
+      "link": "https://www.mongodb.com/docs/manual/core/index-ttl/"
+    },
+    {
+      "questionTitle": "What are capped collections?",
+      "answer": "Capped collections are fixed-size collections that preserve insertion order and overwrite the oldest documents when full, suited to logs and caches.",
+      "link": "https://www.mongodb.com/docs/manual/core/capped-collections/"
+    },
+    {
+      "questionTitle": "What is GridFS?",
+      "answer": "GridFS is a specification for storing and retrieving files larger than the 16 MB BSON document limit by splitting them into chunks.",
+      "link": "https://www.mongodb.com/docs/manual/core/gridfs/"
+    },
+    {
+      "questionTitle": "What are write concern and read concern?",
+      "answer": "Write concern defines how many nodes must acknowledge a write, and read concern defines the consistency and isolation level of data returned by reads.",
+      "link": "https://www.mongodb.com/docs/manual/reference/write-concern/"
+    },
+    {
+      "questionTitle": "How do you analyze query performance?",
+      "answer": "Use explain('executionStats') to see whether a query uses an index (IXSCAN) or a full scan (COLLSCAN), and compare documents examined versus returned.",
+      "link": "https://www.mongodb.com/docs/manual/reference/explain-results/"
+    },
+    {
+      "questionTitle": "What are Change Streams?",
+      "answer": "Change streams let applications subscribe to real-time changes (insert, update, delete) in a collection, database, or deployment.",
+      "link": "https://www.mongodb.com/docs/manual/changeStreams/"
+    },
+    {
+      "questionTitle": "What is Mongoose and why use it?",
+      "answer": "Mongoose is an ODM for Node.js that adds schemas, validation, middleware, virtuals, and population on top of the MongoDB driver.",
+      "link": "https://mongoosejs.com/docs/guide.html"
+    }
+  ]
+}
