@@ -506,5 +506,386 @@
       "answer": "Mongoose is an ODM for Node.js that adds schemas, validation, middleware, virtuals, and population on top of the MongoDB driver.",
       "link": "https://mongoosejs.com/docs/guide.html"
     }
+  ],
+  "ai": [
+    {
+      "questionTitle": "What is the difference between AI, Machine Learning, and Deep Learning?",
+      "answer": "AI is the broad goal of making machines perform tasks that need human-like intelligence. Machine Learning is a subset where systems learn patterns from data. Deep Learning is a subset of ML that uses multi-layer neural networks.",
+      "link": "https://aws.amazon.com/what-is/artificial-intelligence/"
+    },
+    {
+      "questionTitle": "What is the difference between supervised and unsupervised learning?",
+      "answer": "Supervised learning trains on labeled data to predict outputs (classification, regression). Unsupervised learning finds structure in unlabeled data, such as clustering or dimensionality reduction.",
+      "link": "https://developers.google.com/machine-learning/crash-course"
+    },
+    {
+      "questionTitle": "What are overfitting and underfitting?",
+      "answer": "Overfitting means a model memorizes training data and performs poorly on new data. Underfitting means it is too simple to capture the pattern. Regularization, more data, and simpler models help with overfitting.",
+      "link": "https://developers.google.com/machine-learning/crash-course/overfitting/overfitting"
+    },
+    {
+      "questionTitle": "Why do we split data into training, validation, and test sets?",
+      "answer": "Training data fits the model, validation data tunes hyperparameters and compares models, and test data gives a final unbiased estimate of performance on unseen data.",
+      "link": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets"
+    },
+    {
+      "questionTitle": "What is gradient descent?",
+      "answer": "Gradient descent is an optimization algorithm that iteratively adjusts model parameters in the direction that reduces the loss, with the step size controlled by the learning rate.",
+      "link": "https://developers.google.com/machine-learning/crash-course/linear-regression/gradient-descent"
+    },
+    {
+      "questionTitle": "What is a neural network?",
+      "answer": "A neural network is a set of connected layers of nodes (neurons) that transform inputs using weights, biases, and activation functions, learning patterns by adjusting weights during training.",
+      "link": "https://aws.amazon.com/what-is/neural-network/"
+    },
+    {
+      "questionTitle": "What are precision, recall, and accuracy?",
+      "answer": "Accuracy is the share of all correct predictions. Precision is the share of predicted positives that are truly positive. Recall is the share of actual positives the model found.",
+      "link": "https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall"
+    },
+    {
+      "questionTitle": "What is a Large Language Model (LLM)?",
+      "answer": "An LLM is a neural network trained on huge amounts of text to predict the next token, which lets it generate, summarize, translate, and reason over language.",
+      "link": "https://aws.amazon.com/what-is/large-language-model/"
+    },
+    {
+      "questionTitle": "What is the Transformer architecture and attention?",
+      "answer": "Transformers process sequences using self-attention, which lets every token weigh its relationship to all other tokens in parallel. This architecture powers most modern LLMs.",
+      "link": "https://arxiv.org/abs/1706.03762"
+    },
+    {
+      "questionTitle": "What are tokens and the context window?",
+      "answer": "Tokens are the chunks of text (words or word pieces) a model reads and writes. The context window is the maximum number of tokens the model can consider at once, covering both input and output.",
+      "link": "https://docs.claude.com/en/docs/build-with-claude/context-windows"
+    },
+    {
+      "questionTitle": "What are embeddings?",
+      "answer": "Embeddings are numeric vectors that represent text, images, or other data so that similar items sit close together in vector space. They power semantic search and recommendations.",
+      "link": "https://developers.google.com/machine-learning/crash-course/embeddings"
+    },
+    {
+      "questionTitle": "What is a vector database?",
+      "answer": "A vector database stores embeddings and performs fast similarity search (nearest neighbor) over them. It is commonly used for semantic search and RAG.",
+      "link": "https://aws.amazon.com/what-is/vector-databases/"
+    },
+    {
+      "questionTitle": "What is Retrieval-Augmented Generation (RAG)?",
+      "answer": "RAG retrieves relevant documents from an external knowledge source and adds them to the prompt so the model answers using current, grounded information instead of relying only on its training data.",
+      "link": "https://aws.amazon.com/what-is/retrieval-augmented-generation/"
+    },
+    {
+      "questionTitle": "RAG vs fine-tuning: when do you use each?",
+      "answer": "Use RAG when you need up-to-date or private knowledge with source traceability. Use fine-tuning to change a model's style, format, or behavior on a specific task. They can also be combined.",
+      "link": "https://docs.claude.com/en/docs/about-claude/glossary"
+    },
+    {
+      "questionTitle": "What is prompt engineering?",
+      "answer": "Prompt engineering is crafting clear instructions, context, examples, and output formats so a model produces reliable results. Techniques include few-shot examples, role setting, and step-by-step reasoning.",
+      "link": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview"
+    },
+    {
+      "questionTitle": "What does temperature do?",
+      "answer": "Temperature controls randomness in token selection. Low values give more focused and deterministic outputs, while high values give more varied and creative ones.",
+      "link": "https://docs.claude.com/en/docs/about-claude/glossary"
+    },
+    {
+      "questionTitle": "What are hallucinations and how can you reduce them?",
+      "answer": "Hallucinations are confident but incorrect or invented outputs. Reduce them by grounding answers with RAG, asking the model to cite sources or say when it doesn't know, lowering temperature, and validating outputs.",
+      "link": "https://docs.claude.com/en/docs/about-claude/glossary"
+    },
+    {
+      "questionTitle": "How do you integrate an LLM API into a Node/Express backend?",
+      "answer": "Call the provider's API from your server (never from the browser) using an SDK, keep the API key in environment variables, add input validation, rate limiting, error handling and retries, and stream responses when possible.",
+      "link": "https://docs.claude.com/en/api/overview"
+    },
+    {
+      "questionTitle": "What is function calling (tool use)?",
+      "answer": "Tool use lets the model request calls to functions you define, such as querying a database or an API. Your code runs the function and returns the result so the model can use it in its final answer.",
+      "link": "https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview"
+    },
+    {
+      "questionTitle": "What is an AI agent?",
+      "answer": "An AI agent uses a model in a loop to plan, call tools, observe results, and decide next steps until a goal is reached, rather than answering in a single turn.",
+      "link": "https://aws.amazon.com/what-is/ai-agents/"
+    },
+    {
+      "questionTitle": "What is the Model Context Protocol (MCP)?",
+      "answer": "MCP is an open standard for connecting AI applications to external tools and data sources through a common interface, so integrations can be reused across different clients.",
+      "link": "https://modelcontextprotocol.io/introduction"
+    },
+    {
+      "questionTitle": "What is prompt injection and how do you defend against it?",
+      "answer": "Prompt injection is when untrusted input contains instructions that hijack the model's behavior. Defend by separating trusted and untrusted content, limiting tool permissions, validating outputs, and requiring human approval for sensitive actions.",
+      "link": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+    },
+    {
+      "questionTitle": "Why stream LLM responses and how is it done?",
+      "answer": "Streaming sends tokens as they are generated, so users see output immediately and perceived latency drops. It is typically implemented with server-sent events or chunked HTTP responses.",
+      "link": "https://docs.claude.com/en/docs/build-with-claude/streaming"
+    },
+    {
+      "questionTitle": "How do you evaluate the quality of LLM outputs?",
+      "answer": "Build a test set of representative inputs with expected outputs, then score with exact-match checks, rubric or model-based grading, and human review. Re-run the evaluations whenever you change the prompt or model.",
+      "link": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests"
+    },
+    {
+      "questionTitle": "What is responsible AI and bias in models?",
+      "answer": "Responsible AI covers fairness, transparency, privacy, safety, and accountability. Bias arises from skewed data or design choices and is addressed through diverse data, testing across groups, monitoring, and human oversight.",
+      "link": "https://aws.amazon.com/ai/responsible-ai/"
+    }
+  ],
+  "docker": [
+    {
+      "questionTitle": "What is Docker and why use it?",
+      "answer": "Docker packages an application and its dependencies into containers that run consistently across environments, which removes 'works on my machine' problems and simplifies deployment.",
+      "link": "https://docs.docker.com/get-started/docker-overview/"
+    },
+    {
+      "questionTitle": "What is the difference between a container and a virtual machine?",
+      "answer": "Containers share the host OS kernel and isolate processes, making them lightweight and fast to start. VMs run a full guest OS on a hypervisor, which is heavier but offers stronger isolation.",
+      "link": "https://www.docker.com/resources/what-container/"
+    },
+    {
+      "questionTitle": "What is the difference between an image and a container?",
+      "answer": "An image is a read-only template containing the app and its dependencies. A container is a running instance of an image with its own writable layer.",
+      "link": "https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/"
+    },
+    {
+      "questionTitle": "What is a Dockerfile?",
+      "answer": "A Dockerfile is a text file of instructions (FROM, WORKDIR, COPY, RUN, CMD, and so on) that Docker uses to build an image step by step.",
+      "link": "https://docs.docker.com/reference/dockerfile/"
+    },
+    {
+      "questionTitle": "What is the difference between CMD and ENTRYPOINT?",
+      "answer": "ENTRYPOINT defines the executable that always runs, while CMD provides default arguments that can be overridden at run time. They are often used together.",
+      "link": "https://docs.docker.com/reference/dockerfile/#understand-how-cmd-and-entrypoint-interact"
+    },
+    {
+      "questionTitle": "What is the difference between COPY and ADD?",
+      "answer": "COPY simply copies files from the build context into the image. ADD does the same but can also extract local tar archives and fetch remote URLs, so COPY is preferred for clarity.",
+      "link": "https://docs.docker.com/reference/dockerfile/#add"
+    },
+    {
+      "questionTitle": "How do image layers and build caching work?",
+      "answer": "Each Dockerfile instruction creates a layer, and Docker reuses cached layers until an instruction or its inputs change. Order instructions from least to most frequently changing, for example copy package.json and install dependencies before copying source code.",
+      "link": "https://docs.docker.com/build/cache/"
+    },
+    {
+      "questionTitle": "What are multi-stage builds?",
+      "answer": "Multi-stage builds use several FROM stages in one Dockerfile so you can build in a heavy image and copy only the final artifacts into a small runtime image, reducing size and attack surface.",
+      "link": "https://docs.docker.com/build/building/multi-stage/"
+    },
+    {
+      "questionTitle": "What is a .dockerignore file?",
+      "answer": "It lists files and folders (like node_modules, .git, .env) to exclude from the build context, which speeds up builds and avoids leaking secrets into images.",
+      "link": "https://docs.docker.com/build/concepts/context/#dockerignore-files"
+    },
+    {
+      "questionTitle": "What are Docker volumes?",
+      "answer": "Volumes are Docker-managed storage that persists data outside a container's lifecycle, so data survives container removal and can be shared between containers.",
+      "link": "https://docs.docker.com/engine/storage/volumes/"
+    },
+    {
+      "questionTitle": "What is the difference between volumes and bind mounts?",
+      "answer": "Volumes are managed by Docker and are best for persistent production data. Bind mounts map a specific host path into the container and are handy for live-reloading code in development.",
+      "link": "https://docs.docker.com/engine/storage/bind-mounts/"
+    },
+    {
+      "questionTitle": "What are Docker network drivers?",
+      "answer": "The common drivers are bridge (default, isolated network on a single host), host (shares the host network), none (no networking), and overlay (multi-host networking for Swarm).",
+      "link": "https://docs.docker.com/engine/network/"
+    },
+    {
+      "questionTitle": "How does port mapping work?",
+      "answer": "Publishing a port with -p hostPort:containerPort forwards traffic from the host to the container, for example docker run -p 3000:3000 my-app.",
+      "link": "https://docs.docker.com/get-started/docker-concepts/running-containers/publishing-ports/"
+    },
+    {
+      "questionTitle": "What is Docker Compose?",
+      "answer": "Docker Compose defines and runs multi-container applications using a compose.yaml file, describing services, networks, and volumes so the whole stack starts with docker compose up.",
+      "link": "https://docs.docker.com/compose/"
+    },
+    {
+      "questionTitle": "How do you manage environment variables and secrets?",
+      "answer": "Pass variables with -e, --env-file, or the environment key in Compose. Never bake secrets into images; use Docker secrets or a secrets manager at runtime.",
+      "link": "https://docs.docker.com/compose/how-tos/environment-variables/"
+    },
+    {
+      "questionTitle": "What is Docker Hub and a container registry?",
+      "answer": "A registry stores and distributes images. Docker Hub is the default public registry, and you can also use private registries such as AWS ECR.",
+      "link": "https://docs.docker.com/docker-hub/"
+    },
+    {
+      "questionTitle": "How do you tag and push an image?",
+      "answer": "Tag with docker tag source target:version, then run docker push. Use specific version tags instead of relying on 'latest' for predictable deployments.",
+      "link": "https://docs.docker.com/reference/cli/docker/image/tag/"
+    },
+    {
+      "questionTitle": "What are the most useful docker run flags?",
+      "answer": "-d runs detached, -p publishes ports, -v mounts storage, -e sets env vars, --name names the container, --rm removes it on exit, and --network selects a network.",
+      "link": "https://docs.docker.com/reference/cli/docker/container/run/"
+    },
+    {
+      "questionTitle": "How do you debug a running container?",
+      "answer": "Use docker logs to view output, docker exec -it <container> sh to open a shell inside, and docker inspect to view configuration and network details.",
+      "link": "https://docs.docker.com/reference/cli/docker/container/logs/"
+    },
+    {
+      "questionTitle": "What is a HEALTHCHECK?",
+      "answer": "HEALTHCHECK defines a command Docker runs periodically to test whether the app inside the container is working, marking the container healthy or unhealthy.",
+      "link": "https://docs.docker.com/reference/dockerfile/#healthcheck"
+    },
+    {
+      "questionTitle": "How do you limit container resources?",
+      "answer": "Use flags like --memory and --cpus (or the Compose deploy/resources settings) to cap memory and CPU so one container cannot starve others.",
+      "link": "https://docs.docker.com/engine/containers/resource_constraints/"
+    },
+    {
+      "questionTitle": "What are best practices for secure and small images?",
+      "answer": "Use minimal base images (alpine or slim), multi-stage builds, run as a non-root user, pin versions, remove unnecessary packages, and scan images for vulnerabilities.",
+      "link": "https://docs.docker.com/build/building/best-practices/"
+    },
+    {
+      "questionTitle": "What is the difference between Docker Swarm and Kubernetes?",
+      "answer": "Both orchestrate containers across hosts. Swarm is simpler and built into Docker, while Kubernetes is more powerful and widely adopted, with a larger ecosystem and more configuration.",
+      "link": "https://docs.docker.com/engine/swarm/"
+    },
+    {
+      "questionTitle": "What is the difference between docker stop and docker kill?",
+      "answer": "docker stop sends SIGTERM so the app can shut down gracefully and then SIGKILL after a timeout. docker kill sends SIGKILL immediately by default.",
+      "link": "https://docs.docker.com/reference/cli/docker/container/stop/"
+    },
+    {
+      "questionTitle": "How do you Dockerize a Node.js application?",
+      "answer": "Start from a node base image, set WORKDIR, copy package files and run npm ci, copy the source, expose the port, and set CMD to start the server. Add a .dockerignore and consider a multi-stage build.",
+      "link": "https://docs.docker.com/guides/nodejs/"
+    }
+  ],
+  "aws": [
+    {
+      "questionTitle": "What is Amazon EC2?",
+      "answer": "EC2 provides resizable virtual servers in the cloud. You choose the instance type, OS, storage, and networking, and pay for what you use.",
+      "link": "https://docs.aws.amazon.com/ec2/"
+    },
+    {
+      "questionTitle": "What is Amazon S3 and what is it used for?",
+      "answer": "S3 is highly durable object storage used for static files, backups, logs, and website hosting. Data is stored as objects in buckets with fine-grained access control.",
+      "link": "https://docs.aws.amazon.com/s3/"
+    },
+    {
+      "questionTitle": "What is IAM and the principle of least privilege?",
+      "answer": "IAM controls who can access which AWS resources through users, roles, and policies. Least privilege means granting only the permissions needed for a task, and preferring roles over long-lived access keys.",
+      "link": "https://docs.aws.amazon.com/iam/"
+    },
+    {
+      "questionTitle": "What is a VPC?",
+      "answer": "A Virtual Private Cloud is your logically isolated network in AWS, with subnets, route tables, internet gateways, and NAT gateways that you configure for public and private resources.",
+      "link": "https://docs.aws.amazon.com/vpc/"
+    },
+    {
+      "questionTitle": "What is the difference between Security Groups and Network ACLs?",
+      "answer": "Security groups are stateful, instance-level firewalls that only allow rules. Network ACLs are stateless, subnet-level firewalls with allow and deny rules.",
+      "link": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html"
+    },
+    {
+      "questionTitle": "What are Regions and Availability Zones?",
+      "answer": "A Region is a geographic area, and each contains multiple isolated Availability Zones (data centers). Deploying across AZs improves availability and fault tolerance.",
+      "link": "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/"
+    },
+    {
+      "questionTitle": "What is AWS Lambda?",
+      "answer": "Lambda runs code in response to events without managing servers. You pay per invocation and execution time, and it scales automatically.",
+      "link": "https://docs.aws.amazon.com/lambda/"
+    },
+    {
+      "questionTitle": "What is Amazon API Gateway?",
+      "answer": "API Gateway is a managed service for creating, securing, throttling, and monitoring REST, HTTP, and WebSocket APIs, often fronting Lambda functions or backend services.",
+      "link": "https://docs.aws.amazon.com/apigateway/"
+    },
+    {
+      "questionTitle": "What is the difference between ECS, EKS, and Fargate?",
+      "answer": "ECS is AWS's native container orchestrator and EKS is managed Kubernetes. Fargate is a serverless compute engine for both that runs containers without managing servers.",
+      "link": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html"
+    },
+    {
+      "questionTitle": "What is Amazon ECR?",
+      "answer": "Elastic Container Registry is a managed, private Docker image registry integrated with IAM, used to store images that ECS, EKS, or Lambda pull for deployment.",
+      "link": "https://docs.aws.amazon.com/ecr/"
+    },
+    {
+      "questionTitle": "What is Elastic Beanstalk?",
+      "answer": "Elastic Beanstalk is a platform-as-a-service that deploys and manages web apps. You upload your code and it provisions EC2, load balancing, scaling, and monitoring for you.",
+      "link": "https://docs.aws.amazon.com/elasticbeanstalk/"
+    },
+    {
+      "questionTitle": "What is Elastic Load Balancing?",
+      "answer": "ELB distributes incoming traffic across multiple targets in different AZs. Application Load Balancers handle HTTP/HTTPS routing, while Network Load Balancers handle high-performance TCP/UDP traffic.",
+      "link": "https://docs.aws.amazon.com/elasticloadbalancing/"
+    },
+    {
+      "questionTitle": "What is Auto Scaling?",
+      "answer": "Auto Scaling automatically adds or removes EC2 instances based on demand or schedules, keeping performance steady while controlling cost.",
+      "link": "https://docs.aws.amazon.com/autoscaling/"
+    },
+    {
+      "questionTitle": "RDS vs DynamoDB: how do you choose?",
+      "answer": "RDS is a managed relational database (MySQL, PostgreSQL, etc.) suited for structured data and joins. DynamoDB is a serverless NoSQL key-value and document database suited for massive scale and low-latency access.",
+      "link": "https://docs.aws.amazon.com/rds/"
+    },
+    {
+      "questionTitle": "What is Amazon Route 53?",
+      "answer": "Route 53 is AWS's DNS service. It registers domains, routes traffic to your resources, and supports health checks and routing policies such as weighted, latency-based, and failover.",
+      "link": "https://docs.aws.amazon.com/route53/"
+    },
+    {
+      "questionTitle": "What is Amazon CloudFront?",
+      "answer": "CloudFront is a CDN that caches content at edge locations close to users, reducing latency and load on your origin such as S3 or a load balancer.",
+      "link": "https://docs.aws.amazon.com/cloudfront/"
+    },
+    {
+      "questionTitle": "How do you monitor applications with CloudWatch?",
+      "answer": "CloudWatch collects metrics, logs, and events, lets you build dashboards, and triggers alarms (for example to notify via SNS or to scale resources) when thresholds are crossed.",
+      "link": "https://docs.aws.amazon.com/cloudwatch/"
+    },
+    {
+      "questionTitle": "What is Infrastructure as Code and CloudFormation?",
+      "answer": "Infrastructure as Code defines infrastructure in versioned templates. CloudFormation provisions and updates AWS resources from YAML/JSON templates in a repeatable way.",
+      "link": "https://docs.aws.amazon.com/cloudformation/"
+    },
+    {
+      "questionTitle": "How do you build a CI/CD pipeline on AWS?",
+      "answer": "Use CodePipeline to orchestrate stages, CodeBuild to build and test, and CodeDeploy or ECS deployments to release. You can also use GitHub Actions to push images to ECR and update services.",
+      "link": "https://docs.aws.amazon.com/codepipeline/"
+    },
+    {
+      "questionTitle": "Secrets Manager vs Parameter Store: what is the difference?",
+      "answer": "Both store configuration securely. Secrets Manager adds automatic rotation and is designed for credentials, while Parameter Store is simpler and cheaper for general config and secrets.",
+      "link": "https://docs.aws.amazon.com/secretsmanager/"
+    },
+    {
+      "questionTitle": "How would you deploy a React frontend on AWS?",
+      "answer": "Build the app, upload the static files to S3, and serve them through CloudFront with HTTPS. Alternatively, use AWS Amplify Hosting for Git-based continuous deployment.",
+      "link": "https://docs.aws.amazon.com/amplify/"
+    },
+    {
+      "questionTitle": "How would you deploy a Dockerized Node/Express API on AWS?",
+      "answer": "Push the image to ECR, run it on ECS with Fargate behind an Application Load Balancer, store config in Secrets Manager or Parameter Store, and send logs to CloudWatch.",
+      "link": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html"
+    },
+    {
+      "questionTitle": "How do you enable HTTPS with ACM?",
+      "answer": "Request a free public certificate in AWS Certificate Manager, validate domain ownership via DNS, and attach it to a load balancer or CloudFront distribution. ACM handles renewal automatically.",
+      "link": "https://docs.aws.amazon.com/acm/"
+    },
+    {
+      "questionTitle": "What are blue/green and rolling deployments?",
+      "answer": "Rolling deployments replace instances gradually. Blue/green runs the new version beside the old one and switches traffic when ready, enabling quick rollback. CodeDeploy supports both.",
+      "link": "https://docs.aws.amazon.com/codedeploy/"
+    },
+    {
+      "questionTitle": "What is the AWS Well-Architected Framework?",
+      "answer": "It is a set of best practices across pillars: operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability, used to review and improve cloud architectures.",
+      "link": "https://aws.amazon.com/architecture/well-architected/"
+    }
   ]
 }

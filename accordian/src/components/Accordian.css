@@ -15,9 +15,10 @@
 
   font-family: var(--font-body);
   color: var(--ink);
-  background: var(--bg);
-  min-height: 100vh;
-  padding: clamp(28px, 6vw, 80px) 16px;
+  /* background: var(--bg); */
+  max-height: 100vh;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,12 +38,18 @@
 .iq-topic--express { --accent: #c2760a; --accent-ink: #8a4f00; padding:10px }
 .iq-topic--node    { --accent: #2f9461; --accent-ink: #1c6b43; padding:10px }
 .iq-topic--mongodb { --accent: #7a4fd1; --accent-ink: #5a35a8; padding:10px }
+.iq-topic--ai      { --accent: #d6457a; --accent-ink: #a3235a; padding:10px }
+.iq-topic--docker  { --accent: #0e9aa7; --accent-ink: #0a6b74; padding:10px }
+.iq-topic--aws     { --accent: #e0533a; --accent-ink: #a8321c; padding:10px }
 
 @media (prefers-color-scheme: dark) {
   .iq-topic--react   { --accent: #5aaaf0; --accent-ink: #7dbcf5; }
   .iq-topic--express { --accent: #f0a742; --accent-ink: #f5bd6b; }
   .iq-topic--node    { --accent: #4cc58a; --accent-ink: #72d6a3; }
   .iq-topic--mongodb { --accent: #a98af0; --accent-ink: #c1a8f5; }
+  .iq-topic--ai      { --accent: #f27aa6; --accent-ink: #f59bbd; }
+  .iq-topic--docker  { --accent: #4fd0dc; --accent-ink: #78dce5; }
+  .iq-topic--aws     { --accent: #f2806a; --accent-ink: #f6a08f; }
 }
 
 /* ---------- Base ---------- */
@@ -90,10 +97,11 @@
 
 .iq__title {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight:700;
   font-size: clamp(2rem, 5vw, 3rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
+  color: black;
 }
 
 .iq__lead {
@@ -250,7 +258,7 @@
 
 .iq-item {
   border-radius: 14px;
-  padding: 5px;
+  padding:5px;
   transition: background 0.2s ease;
 }
 

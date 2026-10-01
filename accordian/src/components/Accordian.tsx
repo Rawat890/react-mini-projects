@@ -8,7 +8,7 @@ type QA = {
   link: string;
 };
 
-type TopicKey = 'react' | 'express' | 'node' | 'mongodb';
+type TopicKey = 'react' | 'express' | 'node' | 'mongodb' | 'ai' | 'docker' | 'aws';
 
 const data = INTERVIEW_DATA as Record<TopicKey, QA[]>;
 
@@ -17,6 +17,9 @@ const TOPICS: { key: TopicKey; title: string; badge: string; blurb: string }[] =
   { key: 'express', title: 'Top Express questions', badge: 'Ex', blurb: 'Routing, middleware and errors' },
   { key: 'node', title: 'Top Node questions', badge: 'No', blurb: 'Event loop, streams and modules' },
   { key: 'mongodb', title: 'Top MongoDB questions', badge: 'Mo', blurb: 'Queries, indexes and data modeling' },
+  { key: 'ai', title: 'Top AI questions', badge: 'AI', blurb: 'LLMs, RAG, prompts and agents' },
+  { key: 'docker', title: 'Top Docker questions', badge: 'Dk', blurb: 'Images, containers and Compose' },
+  { key: 'aws', title: 'Top AWS deployment questions', badge: 'Aw', blurb: 'EC2, ECS, S3 and CI/CD' },
 ];
 
 export const Accordian = () => {
