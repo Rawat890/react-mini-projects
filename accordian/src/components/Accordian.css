@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap');
+
+/* ---------- Tokens ---------- */
+.iq {
+  --bg: #f2f4f9;
+  --surface: #ffffff;
+  --ink: #141a2e;
+  --ink-soft: #55607a;
+  --line: #e3e7f0;
+  --shadow: 0 1px 2px rgba(20, 26, 46, 0.04), 0 10px 30px -18px rgba(20, 26, 46, 0.25);
+  --on-accent: #ffffff;
+
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
+
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  min-height: 100vh;
+  padding: clamp(28px, 6vw, 80px) 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .iq {
+    --bg: #0e1220;
+    --surface: #161c30;
+    --ink: #e9ecf6;
+    --ink-soft: #9ba5c1;
+    --line: #262e49;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px -18px rgba(0, 0, 0, 0.7);
+    --on-accent: #0e1220;
+  }
+}
+
+/* One accent per topic: it tells you where you are */
+.iq-topic--react   { --accent: #1d7fd6; --accent-ink: #0f5fa8; padding:10px }
+.iq-topic--express { --accent: #c2760a; --accent-ink: #8a4f00; padding:10px }
+.iq-topic--node    { --accent: #2f9461; --accent-ink: #1c6b43; padding:10px }
+.iq-topic--mongodb { --accent: #7a4fd1; --accent-ink: #5a35a8; padding:10px }
+
+@media (prefers-color-scheme: dark) {
+  .iq-topic--react   { --accent: #5aaaf0; --accent-ink: #7dbcf5; }
+  .iq-topic--express { --accent: #f0a742; --accent-ink: #f5bd6b; }
+  .iq-topic--node    { --accent: #4cc58a; --accent-ink: #72d6a3; }
+  .iq-topic--mongodb { --accent: #a98af0; --accent-ink: #c1a8f5; }
+}
+
+/* ---------- Base ---------- */
+.iq *,
+.iq *::before,
+.iq *::after {
+  box-sizing: border-box;
+}
+
+.iq button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.iq h1,
+.iq h2,
+.iq h3,
+.iq p,
+.iq ul {
+  margin: 0;
+}
+
+.iq button:focus-visible,
+.iq a:focus-visible {
+  outline: 2px solid var(--accent, var(--ink));
+  outline-offset: 2px;
+}
+
+/* ---------- Intro ---------- */
+.iq__intro,
+.iq__topics {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.iq__intro {
+  margin-bottom: 36px;
+}
+
+.iq__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.iq__lead {
+  margin-top: 14px;
+  max-width: 54ch;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* ---------- Topic card ---------- */
+.iq-topic {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.iq-topic + .iq-topic {
+  margin-top: 14px;
+}
+
+.iq-topic::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.35s ease;
+}
+
+.iq-topic[data-open='true'] {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+  box-shadow: 0 24px 48px -28px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
+.iq-topic[data-open='true']::before {
+  transform: scaleY(1);
+}
+
+.iq-topic__trigger {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 22px;
+}
+
+.iq-topic__badge {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: var(--accent-ink);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.iq-topic[data-open='true'] .iq-topic__badge {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.iq-topic__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.iq-topic__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.iq-topic__meta {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.iq-topic__count {
+  flex: none;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+}
+
+.iq-chevron {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  margin: 0 4px 3px 2px;
+  border-right: 2px solid var(--ink-soft);
+  border-bottom: 2px solid var(--ink-soft);
+  transform: rotate(45deg);
+  transition: transform 0.3s ease, border-color 0.2s ease;
+}
+
+.iq-topic[data-open='true'] .iq-chevron {
+  transform: rotate(-135deg) translate(-2px, -2px);
+  border-color: var(--accent-ink);
+}
+
+.iq-topic__trigger:hover .iq-chevron {
+  border-color: var(--accent-ink);
+}
+
+/* ---------- Smooth open/close panel ---------- */
+.iq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s ease;
+}
+
+.iq-panel[data-open='true'] {
+  grid-template-rows: 1fr;
+}
+
+.iq-panel__inner {
+  min-height: 0;
+  overflow: hidden;
+  visibility: hidden; /* keeps closed content out of the tab order */
+  transition: visibility 0s linear 0.32s;
+}
+
+.iq-panel[data-open='true'] > .iq-panel__inner {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* ---------- Question list ---------- */
+.iq-list {
+  list-style: none;
+  padding: 8px 14px 14px 18px;
+  border-top: 1px solid var(--line);
+}
+
+.iq-item {
+  border-radius: 14px;
+  padding: 5px;
+  transition: background 0.2s ease;
+}
+
+.iq-item + .iq-item {
+  margin-top: 2px;
+}
+
+.iq-item[data-open='true'] {
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.iq-item__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 14px;
+}
+
+.iq-item__title {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.iq-item__trigger:hover .iq-item__title,
+.iq-item[data-open='true'] .iq-item__title {
+  color: var(--accent-ink);
+}
+
+/* plus that turns into a minus */
+.iq-toggle {
+  position: relative;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.iq-toggle::before,
+.iq-toggle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 1.5px;
+  background: var(--ink-soft);
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease, background 0.2s ease;
+}
+
+.iq-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.iq-item__trigger:hover .iq-toggle {
+  border-color: var(--accent);
+}
+
+.iq-item[data-open='true'] .iq-toggle {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.iq-item[data-open='true'] .iq-toggle::before,
+.iq-item[data-open='true'] .iq-toggle::after {
+  background: var(--on-accent);
+}
+
+.iq-item[data-open='true'] .iq-toggle::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* ---------- Answer ---------- */
+.iq-answer {
+  padding: 0 14px 18px;
+}
+
+.iq-answer__text {
+  max-width: 62ch;
+  font-size: 0.975rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.iq-answer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--accent-ink);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.iq-answer__link:hover {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border-color: var(--accent);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 560px) {
+  .iq-topic__trigger {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .iq-topic__count {
+    display: none;
+  }
+
+  .iq-topic__badge {
+    width: 42px;
+    height: 42px;
+  }
+
+  .iq-list {
+    padding: 6px 8px 10px 12px;
+  }
+
+  .iq-item__trigger {
+    padding: 12px 10px;
+  }
+
+  .iq-answer {
+    padding: 0 10px 16px;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .iq *,
+  .iq *::before,
+  .iq *::after {
+    transition: none !important;
+  }
+}
